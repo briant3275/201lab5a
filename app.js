@@ -1,4 +1,6 @@
 'use strict';
+
+
 /////////////////////////////////////
 /* Problem 1 (this is your demo that we'll solve in class)
 Write a function called sum() that takes in two numbers as arguments and then returns an array where the first element is the sum of those numbers, and the second element is a concatenated string that EXACTLY follows this example and uses the values that were input into the function:
@@ -56,13 +58,41 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
+    let Sum = sum(a,b)[0];
+    let abcSum = sum(Sum, c)[0]
+    
+    let multiplyAB = multiply(a, b)[0];
+    let multiplyABC = multiply(multiplyAB, c)[0]
+    
+    return[abcSum, multiplyABC, `${a} and ${b} and ${c} sum to ${abcSum}.`, `The product of ${a} and ${b} and ${c} is ${multiplyABC}.`]
 
-    let sum = a + b + c;
-    let product = a * b * c;
+    
+  }
+// function sumAndMultiply(a, b, c) { //eslint-disable-line
 
-    return [sum, product, `The sum of ${a}, ${b}, and ${c} is ${sum}. The product of ${a}, ${b} and ${c} is ${product}.`]
+//     //task a is sum 3 numbers
+//     // let sumABlist = sum(a, b)
+//     // let sumABnumber = sumABlist[0]
+//     // let sumABC = sum(sumABnumber,c)[0]
+//     //sum of first 2 numbers
+//     //combine sum of first 2 with the 3rd number
+//     //task b is multiply 3 numbers
+//     // let productABlist = multiply(a, b)
+//     // console.log(productABlist)
+//     // let productABnumber = productABlist[0]
+//     // console.log(productABnumber)
+//     // let productABC = multiply(productABnumber,c)[0]
+//     // console.log("productABC",productABC)
 
-}
+//     let sumAb = sum(a, b)[0]
+//     let sumABC = sum(sumAb, c)[0]
+//     let productAB = multiply(a, b)[0]
+//     let productABC = multiply(productAB, c)[0]
+
+//     return [sumABC, productABC, `${a}, ${b}, ${c} sum to ${sumABC}. The product of ${a} and ${b} and ${c} is ${productABC}.`];
+
+
+// }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
 testSumAndMultiply(4,7,5);
@@ -82,11 +112,19 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 let testArray = [2, 3, 4]; //eslint-disable-line
 
-function sumArray(a, b, c) { //eslint-disable-line
+function sumArray(sumArr) { //eslint-disable-line
 
-    let sum = a + b + c;
+    // let totalAB = sum(a,b)
+    // console.log(totalAB)
+    // let totalABnumber = totalABlist [0]
+    // console.log(totalABnumber)
+    // let totalABC = sum(totalABnumber, c) [0]
+    // console.log("totalABC", totalABC)
 
-    return [`${a}, ${b}, ${c} was passed in as an array of numbers, and ${sum} is their sum.`]
+    let sumA = sum(sumArr[0],sumArr[1])[0]
+    let sumABC = sum(sumA,sumArr[2])[0]
+
+    return [sumABC,`${sumArr[0]},${sumArr[1]},${sumArr[2]} was passed in as an array of numbers, and ${sumABC} is their sum.`]
 
 }
 
@@ -109,10 +147,10 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
 
-    let multArr = a, b, c;
-    multiply(a,b,c);
+    let productA = multiply(multArr[0],multArr[1])[0]
+    let product = multiply(productA,multArr[2])[0]
 
-    return [`The numbers ${multArr} have a product of ${product}.`]
+    return [product,`The numbers ${multArr[0]},${multArr[1]},${multArr[2]} have a product of ${product}.`]
 
 }
 
